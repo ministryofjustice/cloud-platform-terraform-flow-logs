@@ -37,7 +37,7 @@ resource "aws_flow_log" "eni_log" {
 
 
 resource "aws_iam_role" "flow_logs_role" {
-  name = "local.name"
+  name = local.name
 
   assume_role_policy = <<EOF
 {
@@ -57,7 +57,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "flow_logs_policy" {
-  name = "local.name"
+  name = local.name
   role = aws_iam_role.flow_logs_role.id
 
   policy = <<EOF
