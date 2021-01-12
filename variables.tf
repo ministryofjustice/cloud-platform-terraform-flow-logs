@@ -1,6 +1,6 @@
-variable "log_group_name" {
-  description = "Name of Cloudwatch log group"
-  default     = ""
+variable "log_destination_type" {
+  description = "s3 or cloud-watch-logs"
+  default= "s3"
 }
 
 variable "vpc_id" {
