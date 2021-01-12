@@ -1,3 +1,3 @@
-# output "flow_log_name" {
-#     value= aws_cloudwatch_log_group.flow_logs.id
-# }
+output "s3_bucket_name" {
+    value= aws_s3_bucket.flow_logs.id
+}
