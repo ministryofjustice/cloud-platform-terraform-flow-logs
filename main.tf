@@ -1,13 +1,6 @@
-resource "random_id" "flow_logs" {
-  byte_length = 8
-}
-
-locals {
-    name = format("%s-%d", "cloud-platform", random_id.flow_logs.dec)
-}
 
 resource "aws_s3_bucket" "flow_logs" {
-  bucket = local.name
+  bucket_prefix = "cloud-platform-"
   acl    = "private"
 }
 
