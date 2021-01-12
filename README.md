@@ -13,7 +13,6 @@ This module enables us to use AWS Flow logs: network traffic logs at VPC, subnet
       #  OR subnet_id=
       #  OR eni_id=
       # traffic_type="ALL"
-      # log_group_name="my-flowlog"
   }
 ```
 ## Inputs
@@ -21,7 +20,6 @@ This module enables us to use AWS Flow logs: network traffic logs at VPC, subnet
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| log_group_name | the name of the cloudwatch log group | string | `cloud-platform-random` | no |
 | vpc_id | VPC ID as the source of the flow log| string |  | no |
 | subnet_id | Subnet ID as the source of the flow log| string |  | no |
 | eni_id | ENI ID as the source of the flow log| string |  | no |
@@ -47,7 +45,7 @@ Some of the inputs are tags. All infrastructure resources need to be tagged acco
 
 | Name | Description |
 |------|-------------|
-| flow_log_name | Cloudwatch flow-log name |
+| s3_bucket_name | S3 bucket containing the flow_logs|
 
 ## Reading Material
 
