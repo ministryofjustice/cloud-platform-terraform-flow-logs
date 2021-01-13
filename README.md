@@ -5,10 +5,11 @@
 This module enables us to use AWS Flow logs: network traffic logs at VPC, subnet and ENI levels.
 ## Usage
 
+The module should be invoked in the cloud-platform-network folder.
 
 ```hcl
   module "flow_logs"{
-      source= "github.com/ministryofjustice/cloud-platform-terraform-flow-logs?ref=1.0"
+      source= "github.com/ministryofjustice/cloud-platform-terraform-flow-logs?ref=1.2"
       # vpc_id="my-vpc" 
       #  OR subnet_id=
       #  OR eni_id=
