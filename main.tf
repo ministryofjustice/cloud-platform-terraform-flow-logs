@@ -1,13 +1,15 @@
 
 resource "aws_s3_bucket" "flow_logs" {
+  count = var.is_enabled
   bucket_prefix = "cloud-platform-"
   acl    = "private"
 }
 
 
 resource "aws_s3_bucket_public_access_block" "config" {
+  count = var.is_enabled
+
   bucket = aws_s3_bucket.flow_logs.id
-  
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true
@@ -16,7 +18,7 @@ resource "aws_s3_bucket_public_access_block" "config" {
 }
 
 resource "aws_flow_log" "vpc_log" {
-  count           = var.vpc_id != "" ? 1 : 0
+  count           = local.vpc_enabled
   log_destination_type = "s3"
   log_destination = aws_s3_bucket.flow_logs.arn
   traffic_type    = var.traffic_type
@@ -38,4 +40,9 @@ resource "aws_flow_log" "eni_log" {
   log_destination = aws_s3_bucket.flow_logs.arn
   traffic_type    = var.traffic_type
   eni_id          = var.eni_id
+}
+
+
+locals {
+  vpc_enabled = var.is_enabled ? (var.vpc_id != "" ? 1 : 0) : 0
 }

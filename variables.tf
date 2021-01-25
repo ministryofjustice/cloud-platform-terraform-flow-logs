@@ -23,3 +23,8 @@ variable "traffic_type" {
   description = "Type of traffic to be logged"
   default = "ALL"
 }
+
+variable "is_enabled" {
+  description = "switch to enable disable, defaults to false"
+  value = "false"
+}
