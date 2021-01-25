@@ -10,10 +10,12 @@ The module should be invoked in the cloud-platform-network folder.
 ```hcl
   module "flow_logs"{
       source= "github.com/ministryofjustice/cloud-platform-terraform-flow-logs?ref=1.2"
-      # vpc_id="my-vpc" 
+      
+      #  is_enabled=true
+      #  vpc_id="my-vpc" 
       #  OR subnet_id=
       #  OR eni_id=
-      # traffic_type="ALL"
+      #  traffic_type="ALL"
   }
 ```
 ## Inputs
@@ -21,6 +23,7 @@ The module should be invoked in the cloud-platform-network folder.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| is_enabled | | bool | false| no |
 | vpc_id | VPC ID as the source of the flow log| string |  | no |
 | subnet_id | Subnet ID as the source of the flow log| string |  | no |
 | eni_id | ENI ID as the source of the flow log| string |  | no |
