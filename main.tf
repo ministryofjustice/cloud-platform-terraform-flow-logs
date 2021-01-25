@@ -1,7 +1,7 @@
 
 
 locals {
-  #if the is_enabled is true AND a vpc_id has been provided, then vpc_enabled is true
+  #if is_enabled is true AND a vpc_id has been provided, then vpc_enabled is true
   vpc_enabled = var.is_enabled ? (var.vpc_id != "" ? 1 : 0) : 0
   subnet_enabled = var.is_enabled ? (var.subnet_id != "" ? 1 : 0) : 0
   eni_enabled = var.is_enabled ? (var.eni_id != "" ? 1 : 0) : 0
@@ -45,7 +45,7 @@ resource "aws_flow_log" "subnet_log" {
 
 resource "aws_flow_log" "eni_log" {
   count           = local.eni_enabled
-  
+
   log_destination_type = "s3"
   log_destination = aws_s3_bucket.flow_logs[count.index].arn
   traffic_type    = var.traffic_type
