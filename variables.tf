@@ -25,6 +25,6 @@ variable "traffic_type" {
 }
 
 variable "is_enabled" {
-  description = "switch to enable disable, defaults to false"
-  value = "false"
+  description = "switch to enable/disable the module, defaults to false"
+  default = false
 }
