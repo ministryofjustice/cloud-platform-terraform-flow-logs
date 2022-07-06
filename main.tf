@@ -11,6 +11,12 @@ resource "aws_s3_bucket" "flow_logs" {
   count = var.is_enabled ? 1: 0
 
   bucket_prefix = "cloud-platform-"
+}
+
+resource "aws_s3_bucket_acl" "flow_logs_bucket_acl" {
+  count = var.is_enabled ? 1: 0
+  
+  bucket = aws_s3_bucket.flow_logs[count.index].id
   acl    = "private"
 }
 
