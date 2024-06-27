@@ -50,6 +50,7 @@ Some of the inputs are tags. All infrastructure resources need to be tagged acco
 | Name | Description |
 |------|-------------|
 | s3_bucket_arn | S3 bucket arn containing the flow_logs|
+| s3_bucket_id | S3 bucket id containing the flow_logs|
 
 ## Reading Material
 
