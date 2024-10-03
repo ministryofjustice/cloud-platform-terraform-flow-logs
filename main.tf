@@ -37,6 +37,7 @@ resource "aws_flow_log" "vpc_log" {
   log_destination = aws_s3_bucket.flow_logs[count.index].arn
   traffic_type    = var.traffic_type
   vpc_id          = var.vpc_id
+  log_format      = var.log_format
 }
 
 resource "aws_flow_log" "subnet_log" {
